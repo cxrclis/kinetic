@@ -1,0 +1,98 @@
+if game.PlaceId == 2788229376 then
+wait(10)
+assert(getrawmetatable)
+gmt = getrawmetatable(game)
+setreadonly(gmt, false)
+old = gmt.__namecall
+gmt.__namecall =
+    newcclosure(
+        function(self, ...)
+        local args = {...}
+        if tostring(args[1]) == "BreathingHAMON" then
+            return
+        elseif tostring(args[1]) == "TeleportDetect" then
+            return
+        elseif tostring(args[1]) == "CHECKER_1" then
+            return
+        elseif tostring(args[1]) == "CHECKER" then
+            return
+        elseif tostring(args[1]) == "GUI_CHECK" then
+            return
+        elseif tostring(args[1]) == "OneMoreTime" then
+            return
+        elseif tostring(args[1]) == "checkingSPEED" then
+            return
+        elseif tostring(args[1]) == "BANREMOTE" then
+            return
+        elseif tostring(args[1]) == "PERMAIDBAN" then
+            return
+        elseif tostring(args[1]) == "KICKREMOTE" then
+            return
+        elseif tostring(args[1]) == "BR_KICKPC" then
+            return end
+
+        return old(self, ...)
+    end)
+    end
+wait(2)
+local m = {
+ 163721789,
+ 15427717,
+ 201454243,
+ 822999,
+ 63794379,
+ 17260230,
+ 28357488,
+ 93101606,
+ 8195210,
+ 89473551,
+ 16917269,
+ 85989579,
+ 1553950697,
+ 476537893,
+ 155627580,
+ 31163456,
+ 7200829,
+ 25717070,
+ 201454243,
+ 15427717,
+ 63794379,
+ 16138978,
+ 60660789,
+ 17260230,
+ 16138978,
+ 1161411094,
+ 9125623,
+ 11319153,
+ 34758833,
+ 194109750,
+ 35616559,
+ 1257271138,
+ 28885841,
+ 23558830,
+ 25717070,
+  
+ 
+}
+
+for l, c in pairs(game.Players:GetChildren()) do
+for i, v in pairs(m) do
+if c.UserId == v then
+local Vanis = game.Players.LocalPlayer
+Vanis:Kick("detected")
+end
+end
+end
+game.Players.PlayerAdded:Connect(function(plr)
+for i, v in pairs(m) do
+if plr.UserId == v then
+local Vanis = game.Players.LocalPlayer
+Vanis:Kick("detected")
+end
+end
+end)
+
+for i,v in next, getgc(true) do
+    if typeof(v)=="table" and rawget(v,"DoThings") then
+        v.DoThings = function() end
+    end
